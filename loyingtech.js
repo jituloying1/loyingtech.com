@@ -50,7 +50,7 @@ function showBank(){
 }
 
 function sendToSheet(){
- fetch("YOUR_APPS_SCRIPT_URL",{
+ fetch("https://script.google.com/macros/s/AKfycbz7d2R01Tjza7DZSuKUKQ0F1yEyegToCNztL18NI2q8u2BYkmlkJmPxMd1qjLMlcEVi/exec",{
  method:"POST",
  body:JSON.stringify({
   name:fname.value,
@@ -60,3 +60,4 @@ function sendToSheet(){
  })
 });
 }
+
