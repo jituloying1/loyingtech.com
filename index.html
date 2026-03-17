@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Color Sound Page (Assamese)</title>
+<title>Assamese Color Sound</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -11,72 +11,40 @@ body {
   background: #f4f4f4;
 }
 
-h1 {
-  margin-top: 20px;
-}
-
 .container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .color-box {
-  width: 120px;
-  height: 120px;
-  margin: 15px;
-  border-radius: 15px;
-  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  background: red;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
+  cursor: pointer;
   box-shadow: 0 0 10px gray;
-  transition: transform 0.2s;
-}
-
-.color-box:hover {
-  transform: scale(1.1);
 }
 </style>
 </head>
 
 <body>
 
-<h1>🎨 ৰং ক্লিক কৰক আৰু শুনক</h1>
+<h2>🎨 ৰং ক্লিক কৰক</h2>
 
 <div class="container">
-
-  <div class="color-box" style="background:red;" onclick="speakColor('ৰঙা')">ৰঙা</div>
-  <div class="color-box" style="background:blue;" onclick="speakColor('নীলা')">নীলা</div>
-  <div class="color-box" style="background:green;" onclick="speakColor('সেউজীয়া')">সেউজীয়া</div>
-  <div class="color-box" style="background:yellow; color:black;" onclick="speakColor('হালধীয়া')">হালধীয়া</div>
-  <div class="color-box" style="background:purple;" onclick="speakColor('জামনী')">জামনী</div>
-  <div class="color-box" style="background:orange;" onclick="speakColor('কমলা')">কমলা</div>
-  <div class="color-box" style="background:black;" onclick="speakColor('ক'লা')">ক'লা</div>
-  <div class="color-box" style="background:pink;" onclick="speakColor('গোলাপী')">গোলাপী</div>
-
+  <div class="color-box" onclick="playRed()">ৰঙা</div>
 </div>
 
 <script>
-  
-function speakColor(text) {
-  const speech = new SpeechSynthesisUtterance(text);
-
-  const voices = window.speechSynthesis.getVoices();
-
-  // Try Assamese → Hindi → English fallback
-  let voice =
-    voices.find(v => v.lang === "as-IN") ||
-    voices.find(v => v.lang === "hi-IN") ||
-    voices.find(v => v.lang === "en-US");
-
-  if (voice) speech.voice = voice;
-
-  window.speechSynthesis.speak(speech);
+function playRed() {
+  const audio = new Audio("ttsMP3.com_VoiceText_2026-3-17_8-54-4");
+  audio.play();
 }
 </script>
 
