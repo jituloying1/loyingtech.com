@@ -69,6 +69,21 @@ function speakColor(color) {
   speech.pitch = 1;
   window.speechSynthesis.speak(speech);
 }
+function speakColor(text) {
+  const speech = new SpeechSynthesisUtterance(text);
+
+  const voices = window.speechSynthesis.getVoices();
+
+  // Try Assamese → Hindi → English fallback
+  let voice =
+    voices.find(v => v.lang === "as-IN") ||
+    voices.find(v => v.lang === "hi-IN") ||
+    voices.find(v => v.lang === "en-US");
+
+  if (voice) speech.voice = voice;
+
+  window.speechSynthesis.speak(speech);
+}
 </script>
 
 </body>
