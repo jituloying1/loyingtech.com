@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Color Sound Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #f4f4f4;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.color-box {
+  width: 120px;
+  height: 120px;
+  margin: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 0 10px gray;
+  transition: transform 0.2s;
+}
+
+.color-box:hover {
+  transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎨 Click Color & Hear Sound</h1>
+
+<div class="container">
+
+  <div class="color-box" style="background:red;" onclick="speakColor('Red')">Red</div>
+  <div class="color-box" style="background:blue;" onclick="speakColor('Blue')">Blue</div>
+  <div class="color-box" style="background:green;" onclick="speakColor('Green')">Green</div>
+  <div class="color-box" style="background:yellow; color:black;" onclick="speakColor('Yellow')">Yellow</div>
+  <div class="color-box" style="background:purple;" onclick="speakColor('Purple')">Purple</div>
+  <div class="color-box" style="background:orange;" onclick="speakColor('Orange')">Orange</div>
+  <div class="color-box" style="background:black;" onclick="speakColor('Black')">Black</div>
+  <div class="color-box" style="background:pink;" onclick="speakColor('Pink')">Pink</div>
+
+</div>
+
+<script>
+function speakColor(color) {
+  const speech = new SpeechSynthesisUtterance(color);
+  speech.lang = "en-US";
+  speech.rate = 1;
+  speech.pitch = 1;
+  window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
