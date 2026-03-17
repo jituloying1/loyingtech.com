@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Color Sound Page</title>
+<title>Color Sound Page (Assamese)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -46,25 +46,25 @@ h1 {
 
 <body>
 
-<h1>🎨 Click Color & Hear Sound</h1>
+<h1>🎨 ৰং ক্লিক কৰক আৰু শুনক</h1>
 
 <div class="container">
 
-  <div class="color-box" style="background:red;" onclick="speakColor('Red')">Red</div>
-  <div class="color-box" style="background:blue;" onclick="speakColor('Blue')">Blue</div>
-  <div class="color-box" style="background:green;" onclick="speakColor('Green')">Green</div>
-  <div class="color-box" style="background:yellow; color:black;" onclick="speakColor('Yellow')">Yellow</div>
-  <div class="color-box" style="background:purple;" onclick="speakColor('Purple')">Purple</div>
-  <div class="color-box" style="background:orange;" onclick="speakColor('Orange')">Orange</div>
-  <div class="color-box" style="background:black;" onclick="speakColor('Black')">Black</div>
-  <div class="color-box" style="background:pink;" onclick="speakColor('Pink')">Pink</div>
+  <div class="color-box" style="background:red;" onclick="speakColor('ৰঙা')">ৰঙা</div>
+  <div class="color-box" style="background:blue;" onclick="speakColor('নীলা')">নীলা</div>
+  <div class="color-box" style="background:green;" onclick="speakColor('সেউজীয়া')">সেউজীয়া</div>
+  <div class="color-box" style="background:yellow; color:black;" onclick="speakColor('হালধীয়া')">হালধীয়া</div>
+  <div class="color-box" style="background:purple;" onclick="speakColor('জামনী')">জামনী</div>
+  <div class="color-box" style="background:orange;" onclick="speakColor('কমলা')">কমলা</div>
+  <div class="color-box" style="background:black;" onclick="speakColor('ক'লা')">ক'লা</div>
+  <div class="color-box" style="background:pink;" onclick="speakColor('গোলাপী')">গোলাপী</div>
 
 </div>
 
 <script>
 function speakColor(color) {
   const speech = new SpeechSynthesisUtterance(color);
-  speech.lang = "en-US";
+  speech.lang = "as-IN"; // Assamese
   speech.rate = 1;
   speech.pitch = 1;
   window.speechSynthesis.speak(speech);
