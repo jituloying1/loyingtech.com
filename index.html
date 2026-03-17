@@ -62,12 +62,6 @@ h1 {
 </div>
 
 <script>
-function speakColor(color) {
-  const speech = new SpeechSynthesisUtterance(color);
-  speech.lang = "as-IN"; // Assamese
-  speech.rate = 1;
-  speech.pitch = 1;
-  window.speechSynthesis.speak(speech);
   
 function speakColor(text) {
   const speech = new SpeechSynthesisUtterance(text);
