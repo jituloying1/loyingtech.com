@@ -71,5 +71,167 @@ function speakColor(color) {
 }
 </script>
 
+
+
+
+
+  <!DOCTYPE html>
+<html>
+<head>
+<title>Color, Alphabet & ABCD Sound</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #f4f4f4;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.section-title {
+  margin-top: 40px;
+  font-size: 22px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0 0 10px gray;
+  transition: transform 0.2s;
+}
+
+.box:hover {
+  transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎨 Color, Alphabet & ABCD Sound</h1>
+
+<!-- COLORS -->
+<div class="section-title">Colors</div>
+<div class="container">
+  <div class="box" style="background:red;" onclick="speak('Red')">Red</div>
+  <div class="box" style="background:blue;" onclick="speak('Blue')">Blue</div>
+  <div class="box" style="background:green;" onclick="speak('Green')">Green</div>
+  <div class="box" style="background:yellow; color:black;" onclick="speak('Yellow')">Yellow</div>
+  <div class="box" style="background:purple;" onclick="speak('Purple')">Purple</div>
+  <div class="box" style="background:orange;" onclick="speak('Orange')">Orange</div>
+  <div class="box" style="background:black;" onclick="speak('Black')">Black</div>
+  <div class="box" style="background:pink;" onclick="speak('Pink')">Pink</div>
+</div>
+
+<!-- A-Z -->
+<div class="section-title">A - Z Alphabets</div>
+<div class="container" id="alphabetContainer"></div>
+
+<!-- ABCD TABLE -->
+<div class="section-title">ABCD Learning</div>
+<div class="container" id="abcdContainer"></div>
+
+<script>
+// SPEAK FUNCTION
+function speak(text) {
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US";
+  speech.rate = 1;
+  speech.pitch = 1;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(speech);
+}
+
+// RANDOM COLOR
+function getRandomColor() {
+  const colors = ["red","blue","green","purple","orange","teal","brown","pink"];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+// A-Z GENERATE
+const alphaContainer = document.getElementById("alphabetContainer");
+
+for (let i = 65; i <= 90; i++) {
+  const letter = String.fromCharCode(i);
+
+  const div = document.createElement("div");
+  div.className = "box";
+  div.style.background = getRandomColor();
+  div.innerText = letter;
+
+  div.onclick = () => speak(letter);
+
+  alphaContainer.appendChild(div);
+}
+
+// ABCD DATA
+const abcdData = [
+  "A for Apple",
+  "B for Ball",
+  "C for Cat",
+  "D for Dog",
+  "E for Elephant",
+  "F for Fish",
+  "G for Goat",
+  "H for Hen",
+  "I for Ice Cream",
+  "J for Jug",
+  "K for Kite",
+  "L for Lion",
+  "M for Mango",
+  "N for Nest",
+  "O for Orange",
+  "P for Parrot",
+  "Q for Queen",
+  "R for Rabbit",
+  "S for Sun",
+  "T for Tiger",
+  "U for Umbrella",
+  "V for Van",
+  "W for Watch",
+  "X for X-ray",
+  "Y for Yak",
+  "Z for Zebra"
+];
+
+// ABCD GENERATE
+const abcdContainer = document.getElementById("abcdContainer");
+
+abcdData.forEach(item => {
+  const div = document.createElement("div");
+  div.className = "box";
+  div.style.background = getRandomColor();
+  div.innerText = item;
+
+  div.onclick = () => speak(item);
+
+  abcdContainer.appendChild(div);
+});
+</script>
+
+</body>
+</html>
+
 </body>
 </html>
